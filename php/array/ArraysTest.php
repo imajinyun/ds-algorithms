@@ -6,41 +6,24 @@ class ArraysTest
 {
     public static function main(): void
     {
-        $array = new Arrays(10);
-
-        for ($i = 0; $i < 9; $i++) {
-            $array->insert($i, $i * 2);
-        }
+        $array = new Arrays(5);
+        $array->dump();
+        $array->insert(0, 3);
+        $array->insert(0, 4);
+        $array->insert(1, 5);
+        $array->insert(3, 9);
+        $array->insert(3, 10);
+        $array->insert(3, 11);
         $array->dump();
 
-        if (0 === $code = $array->insert(5, 55)) {
-            echo '插入成功', PHP_EOL;
-        } else {
-            echo '插入失败', PHP_EOL;
-        }
-        $array->dump();
+        var_dump($array->find(0));
+        var_dump($array->find(1));
+        var_dump($array->find(3));
 
-        [$index, $value] = $array->delete(5);
-        echo $index, ' ', $value, PHP_EOL;
-        $array->dump();
-
-        if (0 === $code = $array->insert(11, 11)) {
-            echo '插入成功', PHP_EOL;
-        } else {
-            echo '插入失败', PHP_EOL;
-        }
-        $array->dump();
-
-        [$index, $value] = $array->find(11);
-        echo $index, ' ', $value, PHP_EOL;
-        $array->dump();
-
-        [$index, $value] = $array->delete(0);
-        echo $index, ' ', $value, PHP_EOL;
-        $array->dump();
-
-        [$index, $value] = $array->find(0);
-        echo $index, ' ', $value, PHP_EOL;
+        $array->delete(0);
+        $array->delete(3);
+        $array->delete(3);
+        $array->delete(3);
         $array->dump();
     }
 }

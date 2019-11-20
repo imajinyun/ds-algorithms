@@ -2,14 +2,14 @@
 
 class Arrays
 {
-    /** @var array 数据 */
+    /** @var array 数组数据 */
     private $data;
 
-    /** @var int 容量 */
+    /** @var int 数据容量 */
     private $capacity;
 
-    /** @var int 长度 */
-    private $length;
+    /** @var int 数组元素个数 */
+    private $counter;
 
     /**
      * Arrays constructor.
@@ -18,13 +18,77 @@ class Arrays
      */
     public function __construct(int $capacity)
     {
-        if ($capacity <= 0) {
+        if ($capacity < 0) {
             throw new InvalidArgumentException('容量参数错误');
         }
 
         $this->data = [];
         $this->capacity = $capacity;
-        $this->length = 0;
+        $this->counter = 0;
+    }
+
+    /**
+     * 插入给定索引的值。
+     *
+     * @param int $index
+     * @param int $value
+     *
+     * @return bool
+     */
+    public function insert(int $index, int $value): bool
+    {
+        if ($index < 0 || $this->isOutOfRange($index)) {
+            return false;
+        }
+
+        if ($this->isFull()) {
+            return false;
+        }
+
+        for ($i = $this->counter; $i > $index; $i--) {
+            $this->data[$i] = $this->data[$i - 1];
+        }
+        $this->data[$index] = $value;
+        $this->counter++;
+
+        return true;
+    }
+
+    /**
+     * 删除给定索引的值。
+     *
+     * @param int $index
+     *
+     * @return bool
+     */
+    public function delete(int $index): bool
+    {
+        if ($this->isOutOfRange($index)) {
+            return false;
+        }
+
+        for ($i = $index + 1; $i < $this->counter; $i++) {
+            $this->data[$i - 1] = $this->data[$i];
+        }
+        $this->counter--;
+
+        return true;
+    }
+
+    /**
+     * 查找给定索引的值。
+     *
+     * @param int $index
+     *
+     * @return int
+     */
+    public function find(int $index): int
+    {
+        if ($index < 0 || $index >= $this->counter) {
+            return -1;
+        }
+
+        return $this->data[$index];
     }
 
     /**
@@ -32,9 +96,9 @@ class Arrays
      *
      * @return bool
      */
-    public function isFull(): bool
+    private function isFull(): bool
     {
-        return $this->length === $this->capacity;
+        return $this->counter === $this->capacity;
     }
 
     /**
@@ -44,95 +108,20 @@ class Arrays
      *
      * @return bool
      */
-    public function isOutOfRange(int $index): bool
+    private function isOutOfRange(int $index): bool
     {
-        return $index > $this->length;
+        return $index < 0 || $index > $this->counter;
     }
 
     /**
-     * 插入值到给定的索引。
-     *
-     * @param int $index
-     * @param int $value
-     *
-     * @return int 返回代码为 0 表示插入成功
+     * @return void
      */
-    public function insert(int $index, int $value): int
-    {
-        if ($index < 0) {
-            return -1;
-        }
-
-        if ($this->isFull()) {
-            return -2;
-        }
-
-        for ($i = $this->length - 1; $i >= $index; --$i) {
-            $this->data[$i + 1] = $this->data[$i];
-        }
-
-        $this->data[$index] = $value;
-        $this->length++;
-
-        return 0;
-    }
-
-    /**
-     * 删除给定索引的值。
-     *
-     * @param int $index
-     *
-     * @return array
-     */
-    public function delete(int $index): array
-    {
-        $value = 0;
-        if ($index < 0) {
-            return [-1, $value];
-        }
-
-        if ($this->isOutOfRange($index)) {
-            return [-2, $value];
-        }
-
-        $value = $this->data[$index];
-        for ($i = $index; $i < $this->length - 1; $i++) {
-            if (isset($this->data[$i - 1])) {
-                $this->data[$i] = $this->data[$i - 1];
-            }
-        }
-        $this->length--;
-
-        return [$index, $value];
-    }
-
-    /**
-     * 查找给定索引的值。
-     *
-     * @param int $index
-     *
-     * @return array
-     */
-    public function find(int $index): array
-    {
-        $value = 0;
-        if ($index < 0) {
-            return [-1, $value];
-        }
-
-        if ($this->isOutOfRange($index)) {
-            return [-2, $value];
-        }
-
-        return [$index, $this->data[$index]];
-    }
-
     public function dump(): void
     {
         $format = '';
-        for ($i = 0; $i < $this->length; $i++) {
-            $format .= $this->data[$i] . ', ';
+        for ($i = 0; $i < $this->counter; $i++) {
+            $format .= ("{$i} => " . $this->data[$i] . ', ');
         }
-        echo '[' . rtrim($format, ', ') . ']', PHP_EOL, PHP_EOL;
+        echo '[', rtrim($format, ', '), ']', PHP_EOL;
     }
 }
