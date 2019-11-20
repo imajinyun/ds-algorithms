@@ -120,7 +120,7 @@ class Arrays
     {
         $format = '';
         for ($i = 0; $i < $this->counter; $i++) {
-            $format .= ("{$i} => " . $this->data[$i] . ', ');
+            $format .= $this->data[$i] . ', ';
         }
         echo '[', rtrim($format, ', '), ']', PHP_EOL;
     }

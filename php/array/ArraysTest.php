@@ -20,11 +20,11 @@ class ArraysTest
         var_dump($array->find(1));
         var_dump($array->find(3));
 
-        $array->delete(0);
-        $array->delete(3);
         $array->delete(3);
         $array->delete(3);
         $array->dump();
+
+        var_dump($array->find(3));
     }
 }
 
