@@ -28,5 +28,8 @@ public class SingleLinkedListMain {
 
         singleLinkedList.deleteByValue(11);
         singleLinkedList.dump();
+
+        SingleLinkedList.Node c = singleLinkedList.findByValue(22);
+        System.out.println(c.getData());
     }
 }
