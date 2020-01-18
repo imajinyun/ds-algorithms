@@ -1,15 +1,15 @@
 <?php
 
-class Arrays
+class Arr
 {
     /** @var array 数组数据 */
-    private $data;
+    private array $data;
 
     /** @var int 数据容量 */
-    private $capacity;
+    private int $capacity;
 
     /** @var int 数组元素个数 */
-    private $counter;
+    private int $counter;
 
     /**
      * Arrays constructor.

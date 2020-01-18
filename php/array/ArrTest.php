@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__ . '/Arrays.php';
+require __DIR__ . '/Arr.php';
 
-class ArraysTest
+class ArrTest
 {
     public static function main(): void
     {
-        $array = new Arrays(5);
+        $array = new Arr(5);
         $array->dump();
         $array->insert(0, 3);
         $array->insert(0, 4);
@@ -28,4 +28,4 @@ class ArraysTest
     }
 }
 
-ArraysTest::main();
+ArrTest::main();
