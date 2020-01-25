@@ -13,9 +13,8 @@ class SelectionSort
     {
         $result = [];
         foreach ($array as $value) {
-            $smallest = self::findSmallest($array);
-            $result[] = $array[$smallest];
-            unset($array[$smallest]);
+            $index = self::findSmallestIndex($array);
+            $result[] = array_splice($array, $index, 1)[0];
         }
 
         return $result;
@@ -28,7 +27,7 @@ class SelectionSort
      *
      * @return int
      */
-    private static function findSmallest(array $array): int
+    private static function findSmallestIndex(array & $array): int
     {
         [$smallest, $index] = [$array[0], 0];
 
