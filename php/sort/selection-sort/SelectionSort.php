@@ -1,0 +1,44 @@
+<?php
+
+class SelectionSort
+{
+    /**
+     * 选择排序。
+     *
+     * @param array $array 待排序的数组。
+     *
+     * @return array
+     */
+    public static function sort(array $array): array
+    {
+        $result = [];
+        foreach ($array as $value) {
+            $smallest = self::findSmallest($array);
+            $result[] = $array[$smallest];
+            unset($array[$smallest]);
+        }
+
+        return $result;
+    }
+
+    /**
+     * 查找最小值位置。
+     *
+     * @param array $array 待排序的数组。
+     *
+     * @return int
+     */
+    private static function findSmallest(array $array): int
+    {
+        [$smallest, $index] = [$array[0], 0];
+
+        foreach ($array as $key => $value) {
+            if ($smallest > $value) {
+                $smallest = $value;
+                $index = $key;
+            }
+        }
+
+        return $index;
+    }
+}
