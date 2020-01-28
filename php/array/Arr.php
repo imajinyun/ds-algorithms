@@ -12,9 +12,9 @@ class Arr
     private int $counter;
 
     /**
-     * Arrays constructor.
+     * Arr constructor.
      *
-     * @param int $capacity
+     * @param int $capacity 容量
      */
     public function __construct(int $capacity)
     {
@@ -30,10 +30,10 @@ class Arr
     /**
      * 插入给定索引的值。
      *
-     * @param int $index
-     * @param int $value
+     * @param int $index 待插入元素的索引
+     * @param int $value 待插入元素的值
      *
-     * @return bool
+     * @return bool 返回 false 表示插入失败，否则为插入成功
      */
     public function insert(int $index, int $value): bool
     {
@@ -57,9 +57,9 @@ class Arr
     /**
      * 删除给定索引的值。
      *
-     * @param int $index
+     * @param int $index 待删除元素的索引
      *
-     * @return bool
+     * @return bool 返回 false 表示删除失败，否则为删除成功
      */
     public function delete(int $index): bool
     {
@@ -78,9 +78,9 @@ class Arr
     /**
      * 查找给定索引的值。
      *
-     * @param int $index
+     * @param int $index 待查找的索引
      *
-     * @return int
+     * @return int 返回 -1 表示没有找到，否则为待查找的索引指向的元素
      */
     public function find(int $index): int
     {
@@ -94,7 +94,7 @@ class Arr
     /**
      * 判断数组是否已满。
      *
-     * @return bool
+     * @return bool 返回 false 表示数组未满，否则表示数组已满
      */
     private function isFull(): bool
     {
@@ -104,9 +104,9 @@ class Arr
     /**
      * 判断给定的索引是否超出数组范围。
      *
-     * @param int $index
+     * @param int $index 索引
      *
-     * @return bool
+     * @return bool 返回 false 表示索引未超出数组范围，否则表示索引已超出数组范围
      */
     private function isOutOfRange(int $index): bool
     {
