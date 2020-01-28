@@ -23,7 +23,7 @@ class SelectionSort
     /**
      * 查找最小值位置。
      *
-     * @param array $array 待排序的数组。
+     * @param array $array 待排序的数组
      *
      * @return int
      */

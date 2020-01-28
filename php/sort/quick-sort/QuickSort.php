@@ -5,7 +5,7 @@ class QuickSort
     /**
      * 快速排序。
      *
-     * @param array $array 待排序数组。
+     * @param array $array 待排序数组
      *
      * @return array
      */
