@@ -1,6 +1,22 @@
-/.idea
-/.vscode
-/out
+# eclipse ignore
+.settings/
+.project
+.classpath
 
-# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
-.rocketeer/
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+*.orig

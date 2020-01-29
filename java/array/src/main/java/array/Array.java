@@ -2,17 +2,17 @@ package array;
 
 public class Array {
     /**
-     * 数组数据
+     * 数组数据。
      */
     private int[] data;
 
     /**
-     * 数组容量
+     * 数组容量。
      */
     private int capacity;
 
     /**
-     * 数组实际元素个数
+     * 数组实际元素个数。
      */
     private int counter;
 
