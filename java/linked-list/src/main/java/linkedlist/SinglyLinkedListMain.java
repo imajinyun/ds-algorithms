@@ -23,5 +23,18 @@ public class SinglyLinkedListMain {
 
         singlyLinkedList.clear();
         System.out.println(singlyLinkedList.isEmpty());
+
+        SinglyLinkedList p = new SinglyLinkedList();
+        SinglyLinkedList q = new SinglyLinkedList();
+
+        for (int i = 10; i >= 2; i -= 2) {
+            p.insertSorted(i);
+            q.insertSorted(i - 1);
+        }
+        System.out.println(p.toString().equals("2->4->6->8->10"));
+        System.out.println(q.toString().equals("1->3->5->7->9"));
+
+        SinglyLinkedList list = SinglyLinkedList.merge(p, q);
+        System.out.println(list.toString().equals("1->2->3->4->5->6->7->8->9->10"));
     }
 }

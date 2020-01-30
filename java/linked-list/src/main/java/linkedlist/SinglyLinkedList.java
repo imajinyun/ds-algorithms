@@ -5,7 +5,7 @@ public class SinglyLinkedList {
     private int size;
 
     public SinglyLinkedList() {
-        head = new Node(0);
+        head = new Node();
         size = 0;
     }
 
@@ -36,6 +36,18 @@ public class SinglyLinkedList {
 
     public void insert(int data) {
         insertNth(data, size);
+    }
+
+    public void insertSorted(int data) {
+        Node curr = head;
+        while (curr.next != null && data > curr.next.data) {
+            curr = curr.next;
+        }
+
+        Node node = new Node(data);
+        node.next = curr.next;
+        curr.next = node;
+        size++;
     }
 
     public void deleteToHead() {
@@ -89,6 +101,35 @@ public class SinglyLinkedList {
         size = 0;
     }
 
+    public static SinglyLinkedList merge(SinglyLinkedList p, SinglyLinkedList q) {
+        int size = p.size() + q.size();
+        Node m = p.head.next;
+        Node n = q.head.next;
+
+        Node head = new Node();
+        Node tail = head;
+        while (m != null && n != null) {
+            if (m.data <= n.data) {
+                tail.next = m;
+                m = m.next;
+            } else {
+                tail.next = n;
+                n = n.next;
+            }
+            tail = tail.next;
+        }
+
+        if (m == null) {
+            tail.next = n;
+        }
+
+        if (n == null) {
+            tail.next = m;
+        }
+
+        return new SinglyLinkedList(head, size);
+    }
+
     /**
      * 检查边界。
      *
@@ -111,9 +152,12 @@ public class SinglyLinkedList {
         return size;
     }
 
-    public class Node {
+    public static class Node {
         private int data;
         private Node next;
+
+        public Node() {
+        }
 
         public Node(int data) {
             this(data, null);
