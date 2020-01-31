@@ -22,11 +22,13 @@
   },
   "autoload": {
     "psr-4": {
+      "Graph\\": "graph/src/",
       "LinkedList\\": "linked-list/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
+      "Graph\\Test\\": "graph/tests/",
       "LinkedList\\Test\\": "linked-list/tests/"
     }
   },
