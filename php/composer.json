@@ -23,13 +23,15 @@
   "autoload": {
     "psr-4": {
       "Graph\\": "graph/src/",
-      "LinkedList\\": "linked-list/src/"
+      "LinkedList\\": "linked-list/src/",
+      "Sort\\": "sort/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Graph\\Test\\": "graph/tests/",
-      "LinkedList\\Test\\": "linked-list/tests/"
+      "LinkedList\\Test\\": "linked-list/tests/",
+      "Sort\\Test\\": "sort/tests/"
     }
   },
   "minimum-stability": "dev"
