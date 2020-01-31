@@ -4,7 +4,8 @@
 
 # Project ignore
 /vendor
-/composer.lock
+composer.lock
+.phpunit.result.cache
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
