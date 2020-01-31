@@ -1,5 +1,7 @@
 <?php
 
+namespace Sort\QuickSort;
+
 class QuickSort
 {
     /**
@@ -17,12 +19,12 @@ class QuickSort
         }
 
         [$left, $pivot, $right] = [[], $array[0], []];
-        for ($i = 1; $i < $count; $i++) {
-            $value = $array[$i];
-            if ($value <= $pivot) {
-                $left[] = $value;
+
+        for ($i = 1; $i < $count; $i ++) {
+            if ($array[$i] >= $pivot) {
+                $right[] = $array[$i];
             } else {
-                $right[] = $value;
+                $left[] = $array[$i];
             }
         }
 
