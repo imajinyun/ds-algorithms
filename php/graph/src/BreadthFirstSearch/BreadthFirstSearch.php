@@ -7,6 +7,8 @@ class BreadthFirstSearch
     /**
      * 广度优先搜索。
      *
+     * 广度优先搜索用于在非加权图中查找最短路径。
+     *
      * @param array $graph 待搜索数组
      * @param string $start 起始节点
      * @param string $end 终止节点
