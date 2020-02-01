@@ -1,5 +1,7 @@
 <?php
 
+namespace Search\BinarySearch;
+
 class BinarySearch
 {
     /**
