@@ -1,5 +1,7 @@
 <?php
 
+namespace Recursion\Fibonacci;
+
 class FibonacciSequence
 {
     /**
@@ -12,10 +14,10 @@ class FibonacciSequence
     public static function fibonacci(int $number): int
     {
         if ($number < 0) {
-            return -1;
+            return $number;
         }
 
-        if ($number === 0 || $number === 1) {
+        if ($number === 1 || $number === 2) {
             return $number;
         }
 
