@@ -1,5 +1,7 @@
 <?php
 
+namespace Recursion\Factorial;
+
 class Factorial
 {
     /**
