@@ -25,6 +25,7 @@
       "Graph\\": "graph/src/",
       "LinkedList\\": "linked-list/src/",
       "Recursion\\": "recursion/src/",
+      "Search\\": "search/src/",
       "Sort\\": "sort/src/"
     }
   },
@@ -33,6 +34,7 @@
       "Graph\\Test\\": "graph/tests/",
       "LinkedList\\Test\\": "linked-list/tests/",
       "Recursion\\Test\\": "recursion/tests/",
+      "Search\\Test\\": "search/tests/",
       "Sort\\Test\\": "sort/tests/"
     }
   },
