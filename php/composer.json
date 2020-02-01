@@ -24,6 +24,7 @@
     "psr-4": {
       "Graph\\": "graph/src/",
       "LinkedList\\": "linked-list/src/",
+      "Recursion\\": "recursion/src/",
       "Sort\\": "sort/src/"
     }
   },
@@ -31,6 +32,7 @@
     "psr-4": {
       "Graph\\Test\\": "graph/tests/",
       "LinkedList\\Test\\": "linked-list/tests/",
+      "Recursion\\Test\\": "recursion/tests/",
       "Sort\\Test\\": "sort/tests/"
     }
   },
