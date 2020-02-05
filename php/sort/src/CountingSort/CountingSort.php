@@ -20,6 +20,7 @@ class CountingSort
             return $array;
         }
 
+        // 保证数组的最后一个索引为 max
         $max = self::findLargestValue($array) + 1;
 
         // 数组 $bucket 键对应的值记录的值是 $array 中某元素出现的次数。
