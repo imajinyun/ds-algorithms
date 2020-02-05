@@ -23,6 +23,7 @@
   "autoload": {
     "psr-4": {
       "Collection\\": "collection/src/",
+      "DynamicProgramming\\": "dynamic-programming/src/",
       "Graph\\": "graph/src/",
       "LinkedList\\": "linked-list/src/",
       "Recursion\\": "recursion/src/",
@@ -33,6 +34,7 @@
   "autoload-dev": {
     "psr-4": {
       "Collection\\Test\\": "collection/tests/",
+      "DynamicProgramming\\Test\\": "dynamic-programming/tests/",
       "Graph\\Test\\": "graph/tests/",
       "LinkedList\\Test\\": "linked-list/tests/",
       "Recursion\\Test\\": "recursion/tests/",
