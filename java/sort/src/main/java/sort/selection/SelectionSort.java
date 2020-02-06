@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SelectionSort {
+
     public static List<Integer> sort(List<Integer> array) {
         List<Integer> result = new ArrayList<>();
 
@@ -34,4 +35,5 @@ public class SelectionSort {
 
         return index;
     }
+
 }
