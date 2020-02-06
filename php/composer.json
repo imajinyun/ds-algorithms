@@ -28,7 +28,8 @@
       "LinkedList\\": "linked-list/src/",
       "Recursion\\": "recursion/src/",
       "Search\\": "search/src/",
-      "Sort\\": "sort/src/"
+      "Sort\\": "sort/src/",
+      "Stack\\": "stack/src/"
     }
   },
   "autoload-dev": {
@@ -39,7 +40,8 @@
       "LinkedList\\Test\\": "linked-list/tests/",
       "Recursion\\Test\\": "recursion/tests/",
       "Search\\Test\\": "search/tests/",
-      "Sort\\Test\\": "sort/tests/"
+      "Sort\\Test\\": "sort/tests/",
+      "Stack\\Test\\": "stack/tests/"
     }
   },
   "minimum-stability": "dev"
