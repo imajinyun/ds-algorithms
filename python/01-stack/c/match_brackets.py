@@ -2,7 +2,7 @@ from a.stack import Stack
 
 
 def is_match_brackets(str) -> bool:
-    """匹配括号（仅匹配 () 出现的情况）"""
+    """ 匹配括号（仅匹配 () 出现的情况）"""
     stack = Stack()
     paired = True
     index = 0

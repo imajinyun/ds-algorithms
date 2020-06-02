@@ -1,8 +1,10 @@
 import unittest
-from match_brackets import is_match_brackets
+
+from d.match_brackets import is_match_brackets
 
 
 class TestMatchBrackets(unittest.TestCase):
+    """ 测试 match_brackets.py """
 
     def testMatchBrackets(self) -> None:
         self.assertTrue(is_match_brackets('([{}])'))

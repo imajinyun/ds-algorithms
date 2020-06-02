@@ -2,7 +2,7 @@ from a.stack import Stack
 
 
 def decimal_to_any(num: int, base: int):
-    """将十进制数转换成任意进制数"""
+    """ 将十进制数转换成任意进制数 """
     stack, digits = Stack(), '0123456789ABCDEF'
 
     while num > 0:

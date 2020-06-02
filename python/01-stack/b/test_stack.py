@@ -1,9 +1,10 @@
 import unittest
 
-from stack import Stack
+from b.stack import Stack
 
 
 class TestStack(unittest.TestCase):
+    """ 测试 stack.py """
 
     def setUp(self) -> None:
         self.stack = Stack()

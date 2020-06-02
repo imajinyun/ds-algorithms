@@ -1,10 +1,10 @@
 import unittest
 
-from stack import Stack
+from a.stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
-    """测试 stack.py"""
+    """ 测试 stack.py """
 
     def setUp(self) -> None:
         self.stack = Stack()

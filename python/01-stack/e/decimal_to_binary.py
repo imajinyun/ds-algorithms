@@ -2,7 +2,7 @@ from a.stack import Stack
 
 
 def decimal_to_binary(num: int) -> int:
-    """将十进制数转换成二进制数"""
+    """ 将十进制数转换成二进制数 """
     stack = Stack()
 
     while num > 0:

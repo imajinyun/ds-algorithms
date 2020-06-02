@@ -1,9 +1,10 @@
 import unittest
 
-from decimal_to_any import decimal_to_any
+from f.decimal_to_any import decimal_to_any
 
 
 class TestDecimalToAny(unittest.TestCase):
+    """ 测试 decimal_to_any.py """
 
     def testDecimalToAny(self):
         self.assertEqual(0, decimal_to_any(0, 2))

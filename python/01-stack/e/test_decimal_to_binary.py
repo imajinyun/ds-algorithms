@@ -1,9 +1,10 @@
 import unittest
 
-from decimal_to_binary import decimal_to_binary
+from e.decimal_to_binary import decimal_to_binary
 
 
 class TestDecimalToBinary(unittest.TestCase):
+    """ 测试 decimal_to_binary.py """
 
     def testDecimalToBinary(self):
         self.assertEqual(0, decimal_to_binary(0))

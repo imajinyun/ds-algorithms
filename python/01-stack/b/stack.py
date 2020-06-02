@@ -1,5 +1,5 @@
 class Stack:
-    """将列表的头部作为栈的顶端"""
+    """ 将列表的头部作为栈的顶端 """
 
     def __init__(self):
         self.items = []

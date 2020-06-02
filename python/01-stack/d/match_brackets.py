@@ -1,12 +1,12 @@
 from a.stack import Stack
 
 
-def is_match_brackets(str) -> bool:
-    """匹配括号（仅匹配 (){}[] 出现的情况）"""
+def is_match_brackets(string) -> bool:
+    """ 匹配括号（仅匹配 (){}[] 出现的情况）"""
     stack, paired, index = Stack(), True, 0
 
-    while index < len(str) and paired:
-        symbol = str[index]
+    while index < len(string) and paired:
+        symbol = string[index]
 
         if symbol in '([{':
             stack.push(symbol)
