@@ -4,6 +4,7 @@ from a.queue import Queue
 
 
 class TestQueue(unittest.TestCase):
+    """ 测试 queue.py """
 
     def setUp(self) -> None:
         self.queue = Queue()
