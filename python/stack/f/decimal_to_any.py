@@ -23,3 +23,21 @@ def decimal_to_any(num: int, base: int):
 
         return int(result) if flag else (result if result else 0)
     return int(result) if result else 0
+
+
+def decimal_to_str(num: int, base: int) -> str:
+    """ 将整数转换成以 2～16 为进制基数的字符串 """
+    stack, result = Stack(), ''
+    recursive_stack(num, base, stack)
+    while not stack.isEmpty():
+        result += stack.pop()
+    return result
+
+
+def recursive_stack(num: int, base: int, stack: Stack) -> None:
+    s = '0123456789ABCDEF'
+    if num < base:
+        stack.push(s[num])
+    else:
+        stack.push(s[num % base])
+        recursive_stack(num // base, base, stack)
