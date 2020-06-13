@@ -3,7 +3,7 @@
 """
 
 
-def merge_sort(items: list):
+def merge_sort(items: list) -> list:
     if len(items) > 1:
         middle = len(items) // 2
         left, right = items[:middle], items[middle:]
