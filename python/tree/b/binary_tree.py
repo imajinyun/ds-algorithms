@@ -18,18 +18,18 @@ class BinaryTree:
     def setRootValue(self, value):
         self.value = value
 
-    def insertLeft(self, node):
+    def insertLeft(self, value):
         if self.left is None:
-            self.left = BinaryTree(node)
+            self.left = BinaryTree(value)
         else:
-            temp = BinaryTree(node)
+            temp = BinaryTree(value)
             temp.left = self.left
             self.left = temp
 
-    def insertRight(self, node):
+    def insertRight(self, value):
         if self.right is None:
-            self.right = BinaryTree(node)
+            self.right = BinaryTree(value)
         else:
-            temp = BinaryTree(node)
-            temp.left = self.left
+            temp = BinaryTree(value)
+            temp.right = self.right
             self.right = temp
