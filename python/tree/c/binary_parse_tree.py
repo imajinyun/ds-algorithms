@@ -1,9 +1,11 @@
 """
+二叉树的解析
+
 解析树思路：
-1. 如果当前标记是(，就为当前节点添加一个左子节点，并下沉至该子节点；
-2. 如果当前标记在列表['+', '-', '/', '＊']中，就将当前节点的值设为当前标记对应的运算符；为当前节点添加一个右子节点，并下沉至该子节点；
+1. 如果当前标记是 `(`，就为当前节点添加一个左子节点，并下沉至该子节点；
+2. 如果当前标记在列表 `['+', '-', '/', '＊']` 中，就将当前节点的值设为当前标记对应的运算符；为当前节点添加一个右子节点，并下沉至该子节点；
 3. 如果当前标记是数字，就将当前节点的值设为这个数并返回至父节点；
-4. 如果当前标记是)，就跳到当前节点的父节点；
+4. 如果当前标记是 `)`，就跳到当前节点的父节点；
 """
 import sys, operator
 
@@ -24,7 +26,7 @@ def build_parse_tree(expr: str) -> BinaryTree:
             tree.insertLeft('')
             stack.push(tree)
             tree = tree.getLeftChild()
-        elif i not in '+-*/)':
+        elif i in '1234567890':
             tree.setRootValue(eval(i))
             tree = stack.pop()
         elif i in '+-*/':
@@ -44,7 +46,7 @@ def evaluate(tree: BinaryTree):
         '+': operator.add,
         '-': operator.sub,
         '*': operator.mul,
-        '/': operator.truediv
+        '/': operator.truediv,
     }
     left, right = tree.getLeftChild(), tree.getRightChild()
 
@@ -53,3 +55,30 @@ def evaluate(tree: BinaryTree):
         return fn(evaluate(left), evaluate(right))
     else:
         return tree.getRootValue()
+
+
+def pre_order_expr(tree: BinaryTree):
+    expr = ''
+    if tree:
+        expr = str(tree.getRootValue())
+        expr = expr + pre_order_expr(tree.getLeftChild())
+        expr = expr + pre_order_expr(tree.getRightChild())
+    return expr
+
+
+def in_order_expr(tree: BinaryTree):
+    expr = ''
+    if tree:
+        expr = '(' + in_order_expr(tree.getLeftChild())
+        expr = expr + str(tree.getRootValue())
+        expr = expr + in_order_expr(tree.getRightChild()) + ')'
+    return expr
+
+
+def post_order_expr(tree: BinaryTree):
+    expr = ''
+    if tree:
+        expr = '(' + post_order_expr(tree.getLeftChild())
+        expr = expr + post_order_expr(tree.getRightChild())
+        expr = expr + str(tree.getRootValue()) + ')'
+    return expr

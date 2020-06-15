@@ -38,10 +38,11 @@ class BinaryTree:
             temp.right = self.right
             self.right = temp
 
-    def getTreeValues(self, tree):
+    @staticmethod
+    def getTreeValues(tree):
         result, items, queue = [], [], []
         if tree is None:
-            return items
+            return result
         queue.append(tree)
         while queue:
             current = queue.pop(0)
