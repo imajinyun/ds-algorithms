@@ -29,10 +29,40 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.put(6, 'f')
         self.assertEqual('f', bst.get(6))
 
-        items = []
-        for node in bst:
-            items.append(node)
-        self.assertEqual([1, 2, 3, 4, 5, 6], items)
+        keys = []
+        [keys.append(node) for node in bst]
+        self.assertListEqual([1, 2, 3, 4, 5, 6], keys)
+        self.assertListEqual(['a', 'b', 'c', 'd', 'e', 'f'], bst.getTreeValues())
+
+    def testBinarySearchTreeDeleteNodeWithoutChildNode(self):
+        bst = BinarySearchTree()
+        values = [17, 5, 35, 2, 11, 29, 38, 9, 16, 8]
+        [bst.put(i, i) for i in values]
+        self.assertListEqual(values, bst.getTreeValues())
+
+        bst.delete(16)
+        self.assertEqual(len(values) - 1, len(bst.getTreeValues()))
+        self.assertListEqual([17, 5, 35, 2, 11, 29, 38, 9, 8], bst.getTreeValues())
+
+    def testBinarySearchTreeDeleteNodeOnlyOneNode(self):
+        bst = BinarySearchTree()
+        values = [17, 5, 25, 2, 11, 35, 9, 16, 29, 38, 7]
+        [bst.put(i, i) for i in values]
+        self.assertEqual(values, bst.getTreeValues())
+
+        bst.delete(25)
+        self.assertEqual(len(values) - 1, len(bst.getTreeValues()))
+        self.assertEqual([17, 5, 35, 2, 11, 29, 38, 9, 16, 7], bst.getTreeValues())
+
+    def testBinarySearchTreeDeleteNodeHasTwoNode(self):
+        bst = BinarySearchTree()
+        values = [17, 5, 35, 2, 11, 29, 38, 9, 16, 7, 8]
+        [bst.put(i, i) for i in values]
+        self.assertEqual(values, bst.getTreeValues())
+
+        bst.delete(5)
+        self.assertEqual(len(values) - 1, len(bst.getTreeValues()))
+        self.assertEqual([17, 7, 35, 2, 11, 29, 38, 9, 16, 8], bst.getTreeValues())
 
     def testBinarySearchTreeDelete(self):
         bst = BinarySearchTree()
@@ -45,14 +75,13 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.delete(2)
         self.assertEqual(4, bst.length())
 
-        items = []
-        [items.append(k) for k in bst]
-        self.assertEqual([1, 3, 4, 5], items)
+        self.assertEqual(['A', 'C', 'D', 'E'], bst.getTreeValues())
 
-        items = []
         bst.delete(3)
-        [items.append(k) for k in bst]
-        self.assertEqual([1, 4, 5], items)
+        keys = []
+        [keys.append(k) for k in bst]
+        self.assertEqual([1, 4, 5], keys)
+        self.assertEqual(['A', 'D', 'E'], bst.getTreeValues())
 
 
 if __name__ == '__main__':

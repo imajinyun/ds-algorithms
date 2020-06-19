@@ -3,7 +3,7 @@ from e.tree_node import TreeNode
 
 class BinarySearchTree:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.root = None
         self.size = 0
 
@@ -24,6 +24,22 @@ class BinarySearchTree:
 
     def __contains__(self, key):
         return True if self._get(key, self.root) else False
+
+    def getTreeValues(self):
+        result, items, queue = [], [], []
+        if self.root is None:
+            return result
+        queue.append(self.root)
+        while queue:
+            current = queue.pop(0)
+            items.append(current)
+            if current.left is not None:
+                queue.append(current.left)
+            if current.right is not None:
+                queue.append(current.right)
+        for item in items:
+            result.append(item.value)
+        return result
 
     def length(self):
         return self.size
@@ -87,31 +103,28 @@ class BinarySearchTree:
                 node.parent.right = None
         # 待删除的节点有两个节点
         elif node.hasBothChildren():
-            nodeToRemove = node.findNextNode()
-            nodeToRemove.spliceOut()
-            node.key = nodeToRemove.key
-            node.value = nodeToRemove.value
+            sub = node.findSubNode()
+            sub.spliceOut()
+            node.key = sub.key
+            node.value = sub.value
         # 待删除的节点仅有一个子节点
         else:
             # 如果待删除的节点是左节点
             if node.hasLeftChild():
-                # 如果待删除节点是左节点，将待删除节点的左子节点对父节点的引用改为指向待删除节点的父节点，然后将父节点对待删除节点的引用改为指向待删除节点的左子节点
-                if node.hasLeftChild():
+                if node.isLeftChild():
                     node.left.parent = node.parent
                     node.parent.left = node.left
-                # 如果待删除节点是右节点，将待删除节点的右子节点对父节点的引用改为指向待删除节点的父节点，然后将父节点对待删除节点的引用改为指向待删除节点的右子节点
-                elif node.hasRightChild():
-                    node.right.parent = node.parent
-                    node.parent.right = node.right
-                # 如果待删除节点没有父节点，那肯定是根节点，调用 replace() 方法，替换根节点即可
+                elif node.isRightChild():
+                    node.left.parent = node.parent
+                    node.parent.right = node.left
                 else:
                     node.replace(node.left.key, node.left.value, node.left.left, node.left.right)
             # 如果待删除的节点是右节点
             else:
-                if node.hasLeftChild():
+                if node.isLeftChild():
                     node.right.parent = node.parent
                     node.parent.left = node.right
-                elif node.hasRightChild():
+                elif node.isRightChild():
                     node.right.parent = node.parent
                     node.parent.right = node.right
                 else:
