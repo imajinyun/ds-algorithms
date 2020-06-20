@@ -8,7 +8,7 @@ class BinarySearchTree:
         self.size = 0
 
     def __len__(self):
-        return self.length
+        return self.length()
 
     def __iter__(self):
         return self.root.__iter__()
