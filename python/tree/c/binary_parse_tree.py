@@ -69,16 +69,26 @@ def pre_order_expr(tree: BinaryTree):
 def in_order_expr(tree: BinaryTree):
     expr = ''
     if tree:
-        expr = '(' + in_order_expr(tree.getLeftChild())
-        expr = expr + str(tree.getRootValue())
-        expr = expr + in_order_expr(tree.getRightChild()) + ')'
+        if tree.getLeftChild() and tree.getRightChild():
+            expr = '(' + in_order_expr(tree.getLeftChild())
+            expr = expr + str(tree.getRootValue())
+            expr = expr + in_order_expr(tree.getRightChild()) + ')'
+        else:
+            expr = in_order_expr(tree.getLeftChild())
+            expr = expr + str(tree.getRootValue())
+            expr = expr + in_order_expr(tree.getRightChild())
     return expr
 
 
 def post_order_expr(tree: BinaryTree):
     expr = ''
     if tree:
-        expr = '(' + post_order_expr(tree.getLeftChild())
-        expr = expr + post_order_expr(tree.getRightChild())
-        expr = expr + str(tree.getRootValue()) + ')'
+        if tree.getLeftChild() and tree.getRightChild():
+            expr = '(' + post_order_expr(tree.getLeftChild())
+            expr = expr + post_order_expr(tree.getRightChild())
+            expr = expr + str(tree.getRootValue()) + ')'
+        else:
+            expr = post_order_expr(tree.getLeftChild())
+            expr = expr + post_order_expr(tree.getRightChild())
+            expr = expr + str(tree.getRootValue())
     return expr
