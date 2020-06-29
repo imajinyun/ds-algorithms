@@ -8,7 +8,7 @@ class TestBinarySearch(unittest.TestCase):
     def testBinarySearch(self):
         items = [1, 3, 5, 7, 9]
 
-        self.assertTrue(binary_search(items, 0))
+        self.assertFalse(binary_search(items, 0))
         self.assertFalse(binary_search(items, 8))
         self.assertTrue(binary_search(items, 9))
 

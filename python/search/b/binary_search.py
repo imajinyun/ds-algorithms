@@ -10,7 +10,7 @@ def binary_search(items: list, value: int) -> bool:
         if items[middle] == value:
             found = True
         else:
-            if value > items[middle]:
+            if items[middle] < value:
                 first = middle + 1
             else:
                 last = middle - 1
